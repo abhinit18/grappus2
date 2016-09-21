@@ -1,0 +1,126 @@
+
+<div class="full-width bg-truck">
+    <div class="bg-primary">
+        <div class="container-fluid ">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2" style="margin-top: 10%;">
+                    <div class="main-head text-center">
+                        <h1>Winston</h1>
+                        <h4><a href="javascript:void(0);" class="btn btn-info btn-lg" ng-click="signUp()">Sign Up</a></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title text-center">The Basics</h3>
+                <h1 class="text-center"><span class="fa fa-user"></span></h1>
+                <h5 class="text-center">For hotel booking and check-in</h5>
+            </div>
+            <div class="modal-body" style="overflow: hidden;">
+                <form ng-submit="Registration.$valid && stateChange()" novalidate
+                      class="form-horizontal col-sm-12 col-xs-12 remove-all-padding" name="Registration">
+                    <div class="edit-profile-label register-verify-fields col-sm-6 col-xs-12 remove-all-padding">
+                        <label
+                                class="col-sm-12 col-xs-12 signup-form-label remove-all-padding">First Name</label>
+                        <div class=" signup-form-input remove-all-padding">
+                            <input type="text" name="firstname"
+                                   ng-model="temp_user.first_name"
+                                   class="form-control first-name-field "
+                                   required>
+                        </div>
+                        <div class="error" ng-show="Registration.$submitted">
+                            <small class="error text-danger"
+                                   ng-show="Registration.firstname.$error.required && Registration.firstname.$pristine">
+                                First Name is required.
+                            </small>
+                            <small class="error text-danger"
+                                   ng-show="Registration.firstname.$invalid && !Registration.firstname.$pristine">
+                                Please insert a valid name.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="edit-profile-label register-verify-fields col-sm-6 col-xs-12 remove-all-padding">
+                        <label
+                                class="col-sm-12 col-xs-12 signup-form-label remove-all-padding">Last Name</label>
+                        <div class=" signup-form-input remove-all-padding"><input type="text" name="lastname" required
+                                                                                  ng-model="temp_user.last_name"
+                                                                                  class="form-control "
+                                                                                  style="border-top-left-radius: 0; border-bottom-left-radius: 0">
+                        </div>
+                        <div class="error" ng-show="Registration.$submitted">
+                            <small class="error text-danger"
+                                   ng-show="Registration.lastname.$error.required && Registration.lastname.$pristine">
+                                Last Name is required.
+                            </small>
+                            <small class="error text-danger"
+                                   ng-show="Registration.lastname.$invalid && !Registration.lastname.$pristine">
+                                Please insert a valid name.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="edit-profile-label register-verify-fields col-sm-12 col-xs-12 remove-all-padding">
+                        <label
+                                class="col-sm-12 col-xs-12 signup-form-label remove-all-padding">Email</label>
+                        <div class=" signup-form-input remove-all-padding"><input type="email" name="email" required
+                                                                                  ng-model="temp_user.email"
+                                                                                  ng-pattern="EMAIL_REGEXP"
+                                                                                  class="form-control ">
+                        </div>
+                        <div class="error" ng-show="Registration.$submitted">
+                            <small class="error text-danger"
+                                   ng-show="Registration.email.$error.required && Registration.email.$pristine">
+                                Email ID is required.
+                            </small>
+                            <small class="error text-danger"
+                                   ng-show="Registration.email.$invalid && !Registration.email.$pristine">
+                                Please insert a valid email Id.
+                            </small>
+                        </div>
+                    </div>
+                    <div class="edit-profile-label register-verify-fields col-sm-12 col-xs-12 remove-all-padding">
+                        <label
+                                class="col-sm-12 col-xs-12 signup-form-label remove-all-padding">Phone</label>
+                        <div class=" edit-phone signup-form-input remove-all-padding">
+                            <div class="mobile-number-input phone-without-code">
+                                <input type="tel" class="form-control" name="phone" numbers-only="numbers-only"
+                                       maxlength="10" minlength="9" ng-model="temp_user.phone_without_country_code" required>
+                            </div>
+                            <div class="error" ng-show="Registration.$submitted">
+                                <small class="error text-danger" ng-show="Registration.phone.$error.required">
+                                    Mobile No is required.
+                                </small>
+                                <small class="error text-danger" ng-show="Registration.phone.$error.minlength">
+                                    Mobile No is required to be at least 9 characters
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="edit-profile-label register-verify-fields col-sm-12 col-xs-12 remove-all-padding">
+                        <label
+                                class="col-sm-12 col-xs-12 signup-form-label remove-all-padding">Referral Code<label
+                                style="padding-left: 5px; font-size: 13px">(Optional)</label></label>
+                        <div class=" signup-form-input remove-all-padding">
+                            <input type="text" ng-model="temp_user.referral_value" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h5 class="text-center bg-det">
+                            We will send an email if you've modified your address above, and a text to confirm your cell phone number
+                        </h5>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+                        <button type="submit" class="ID-img-btn btn btn-default">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
